@@ -12,7 +12,7 @@ class HeadersTableSeeder extends Seeder
     public function run()
     {
         DB::table('headers')->insert([
-            'page_id' => 1,
+            'pages_id' => 1,
             'site_title' => 'Yannick Khemaja',
             'site_subtitle' => 'Développeur Web',
             'bg_url' => '/images/home_main.jpg',

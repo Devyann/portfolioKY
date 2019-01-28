@@ -13,7 +13,7 @@ class PostsTableSeeder extends Seeder
     {
         DB::table('posts')->insert([
             'order' => 1,
-            'page_id' => 1,
+            'pages_id' => 1,
             'post_title' => 'Présentation',
             'post_subtitle' => 'En quelques mots',
             'content' => 'Bienvenue sur mon portfolio, celui-ci est construit comme une <em>SPA</em> avec Vue.js pour la gestion du Frontend et Laravel pour la partie Backend',

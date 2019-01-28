@@ -15,7 +15,7 @@ class CreateHeadersTable extends Migration
     {
         Schema::create('headers', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('page_id');
+            $table->integer('pages_id');
             $table->string('site_title');
             $table->string('site_subtitle');
             $table->string('bg_url');
