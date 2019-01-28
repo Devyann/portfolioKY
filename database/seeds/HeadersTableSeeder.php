@@ -1,0 +1,22 @@
+<?php
+
+use Illuminate\Database\Seeder;
+
+class HeadersTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        DB::table('headers')->insert([
+            'page_id' => 1,
+            'site_title' => 'Yannick Khemaja',
+            'site_subtitle' => 'Développeur Web',
+            'bg_url' => '/images/home_main.jpg',
+            
+        ]);
+    }
+}

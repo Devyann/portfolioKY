@@ -1,0 +1,41 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+body, html {
+    height: 100%;
+}
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+div.pf-main.container {
+    padding-left: 0px;
+    padding-right: 0px;
+    height: 100%;
+    .card{
+        background: whitesmoke;
+    }
+}
+div.pf-header {
+    background-color: transparent;
+    height: 49%;
+    h1 {
+        background: rgba(0, 0, 0, 0.6);
+        font-size: 2.2rem;
+    }
+    h3 {
+        background: rgba(0, 0, 0, 0.6);
+        /*font-size: 2.2rem;*/
+    }
+}
+div.pf-main-post {
+    height: 49%;
+}
