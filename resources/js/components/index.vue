@@ -61,7 +61,11 @@ export default {
   methods: {
     handleClick (route) {
       this.lastClicked = route.name;
+      this.$store.commit('setPageRouting', this.lastClicked);
     }
+  },
+  created() {
+    this.$store.dispatch('getData');
   }
 }
 </script>

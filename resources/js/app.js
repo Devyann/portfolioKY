@@ -17,7 +17,7 @@ Vue.use(BootstrapVue);
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import { RadialMenu,  RadialMenuItem } from 'vue-radial-menu';
-
+import store from './store' // importing vueX
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -30,5 +30,6 @@ Vue.component('index', require('./components/index').default);
 
 const app = new Vue({
     el: '#app',
-    router
+    router,
+    store
 });

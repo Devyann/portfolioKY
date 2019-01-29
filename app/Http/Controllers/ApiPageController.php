@@ -29,6 +29,6 @@ class ApiPageController extends Controller
         $header = $home->header;
         $posts = $home->posts;
         $page = array(array('header' => $header), array('posts' => $posts));
-        return $page;
+        return response()->json($page);
     }
 }
