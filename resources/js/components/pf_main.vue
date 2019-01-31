@@ -18,27 +18,16 @@
         data() {
             
             return {
-                posts: [
-                    {
-                        title: 'Présentation',
-                        subtitle: 'En quelques mots',
-                        content: 'Bienvenue sur mon portfolio, celui-ci est construit comme une <em>SPA</em> avec Vue.js pour la gestion du Frontend et Laravel pour la partie Backend',
-                        links: [
-                            {
-                                name: 'Contact',
-                                href: '#',
-                            },
-                            {
-                                name: 'Curriculum vitae',
-                                href: '#'
-                            }
-                        ]
-                    }
-                ]
+
             }
         },
         mounted() {
 
+        },
+        computed: {
+            posts() {                
+                return this.$store.state.page.posts;
+            }
         }
     }
 </script>

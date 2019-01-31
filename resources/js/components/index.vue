@@ -34,12 +34,13 @@
 import { RadialMenu,  RadialMenuItem } from 'vue-radial-menu'
 
 export default {
-  
   components: {
     RadialMenu,
     RadialMenuItem
   },
   data () {
+        
+    
     console.log(this.$route.name); 
     return {
 //      items: ['foo', 'bar', 'hello', 'world', 'more', 'items'],
@@ -66,6 +67,12 @@ export default {
   },
   created() {
     this.$store.dispatch('getData');
+//    console.log(this.$route.params.id);
+    if (this.$route.name === null) {
+        this.$router.push({ name: 'home'});
+    }
+    
+//    console.log(this.$store.state.page);
   }
 }
 </script>

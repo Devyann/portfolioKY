@@ -9,6 +9,11 @@ export default new Vuex.Store({
         page: [],
         pageRouting: 'home'
     },
+    getters: {
+        bgUrl: (state) => {
+            return state.page.header.bgUrl;
+        }
+    },
     mutations: {
         setData(state, data) {
             state.page = data;
