@@ -13,9 +13,7 @@
 Auth::routes();
 /* Admin */
 Route::middleware('auth')->prefix('admin')->group(function () {
-    Route::get('users', function () {
-        echo 'routing ok';
-    });
+    
     Route::get('/', 'BackOfficeController@index')->name('index_admin');
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard_admin');
 });

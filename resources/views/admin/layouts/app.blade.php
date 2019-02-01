@@ -82,7 +82,7 @@
                     <aside class="main-menu bg-dark h-100">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link active" href="{{ route('dashboard_admin') }}">Tableau de bord</a>
+                                <a class="nav-link active" href="{{ route('dashboard_admin') }}"><i class="fas fa-sitemap"></i>Tableau de bord</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Pages</a>
