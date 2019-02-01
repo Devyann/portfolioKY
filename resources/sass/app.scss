@@ -12,10 +12,9 @@ body, html {
     height: 100%;
 }
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
+
+
+// frontend app
 div.pf-main.container {
     padding-left: 0px;
     padding-right: 0px;
@@ -38,4 +37,13 @@ div.pf-header {
 }
 div.pf-main-post {
     height: 49%;
+}
+
+// backoffice
+.navbar-laravel {
+  background-color: $violetsoft;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  div.col-2 {
+      background-color: $violetdark;
+  }
 }
