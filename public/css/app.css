@@ -10542,3 +10542,7 @@ div.main-col {
   background-color: #fafafa;
 }
 
+div.main-col main .breadcrumb {
+  background-color: transparent;
+}
+

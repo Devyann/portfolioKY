@@ -16,7 +16,7 @@ class PagesController extends Controller
     {
         $pages = Pages::all();
 //        dd($pages);
-        return view('admin/pages', ['pages' => $pages ]);
+        return view('admin/pages/index', ['pages' => $pages ]);
     }
 
     /**
@@ -26,7 +26,7 @@ class PagesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin/pages/create');
     }
 
     /**
@@ -48,7 +48,7 @@ class PagesController extends Controller
      */
     public function show($id)
     {
-        //
+        return 'voir une page';
     }
 
     /**
@@ -59,7 +59,7 @@ class PagesController extends Controller
      */
     public function edit($id)
     {
-        //
+        return 'éditer une page';
     }
 
     /**
@@ -82,6 +82,6 @@ class PagesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return 'supprimer une page';
     }
 }

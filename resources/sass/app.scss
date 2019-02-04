@@ -53,6 +53,8 @@ div.pf-main-post {
 div.main-col{
     background-color: $main-bg;
     main {
-    
+        .breadcrumb {
+            background-color: transparent;
+        }
     }
 }

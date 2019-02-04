@@ -116,7 +116,23 @@
                         <div class="row justify-content-end">
                             <div class="col-12 px-4">
                                 <div class="text-right text-secondary">
-                                    {{ str_replace('/', ' > ', Request::path()) }}
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb justify-content-end">
+                                            <li class="breadcrumb-item">
+                                              <i class="fa fa-home"></i>
+                                              <a href="{{route('index_admin')}}">Home</a>
+                                            </li>
+                                            @for($i = 2; $i <= count(Request::segments()); $i++)
+                                                @if ($i == count(Request::segments()))
+                                                    <li class="breadcrumb-item active" aria-current="page">{{ Request::segment($i) }}</li>
+                                                @else    
+                                                    <li class="breadcrumb-item">                                                
+                                                        <a href="">{{ Request::segment($i) }}</a>
+                                                    </li>
+                                                @endif
+                                            @endfor
+                                        </ol>
+                                    </nav>
                                 </div>                              
                             </div>
                         </div>
