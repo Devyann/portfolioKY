@@ -16,6 +16,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     
     Route::get('/', 'BackOfficeController@index')->name('index_admin');
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard_admin');
+    Route::resource('pages', 'PagesController');
 });
 
 /* app front end */

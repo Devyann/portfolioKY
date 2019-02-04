@@ -14,7 +14,7 @@
         "axios": "^0.18.0",
         "bootstrap": "^4.0.0",
         "cross-env": "^5.1",
-        "jquery": "^3.2",
+        "jquery": "^3.3.1",
         "laravel-mix": "^4.0.7",
         "lodash": "^4.17.5",
         "popper.js": "^1.12",
@@ -26,7 +26,10 @@
     },
     "dependencies": {
         "bootstrap-vue": "^2.0.0-rc.11",
+        "datatables.net": "^1.10.19",
+        "datatables.net-dt": "^1.10.19",
         "es6-promise": "^4.2.5",
+        "jQuery": "^1.7.4",
         "vue-radial-menu": "^1.1.1",
         "vue-router": "^3.0.2",
         "vuex": "^3.1.0"
