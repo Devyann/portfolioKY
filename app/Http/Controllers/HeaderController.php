@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Headers;
+use App\Pages;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\Finder\SplFileInfo;
 
 class HeaderController extends Controller
 {
@@ -41,7 +44,18 @@ class HeaderController extends Controller
      */
     public function create()
     {
-        return view('admin/headers/create');
+        $pages = Pages::all();
+
+        $bg_imgs = \File::files('images');
+        $imgs_array = array();
+        foreach ($bg_imgs as $bg_img){
+
+            $imgs_array[] = pathinfo($bg_img);
+            
+        }
+
+        return view('admin/headers/create', ['imgs_array' => $imgs_array,
+                                             'pages' => $pages]);
     }
 
     /**
@@ -52,7 +66,24 @@ class HeaderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'site_title' => 'required|unique:headers|max:255',
+            'site_subtitle' => 'required|unique:headers|max:255',
+        ]);
+        $header = new Headers([
+            'site_title' => $request->site_title,
+            'site_subtitle' => $request->site_subtitle,
+            'pages_id' => $request->page_id,
+            'bg_url' => $request->bg_url
+          ]);
+        if($header->save()) {
+            
+            return redirect('admin/headers')->with('success', 'En-tête ajoutée');
+            
+        } else {
+            
+            return redirect('admin/headers')->with('error', 'L\'en-tête n\'a pas pu être créer');
+        }
     }
 
     /**
@@ -95,8 +126,11 @@ class HeaderController extends Controller
      * @param  \App\Headers  $headers
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Headers $headers)
+    public function destroy($id)
     {
-        //
+        $header = Headers::find($id);
+        $header->delete();
+
+        return redirect('/admin/headers')->with('success', 'L\'en-tête a bien été supprimée');
     }
 }

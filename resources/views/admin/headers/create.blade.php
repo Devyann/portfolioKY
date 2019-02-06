@@ -26,16 +26,20 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="pageParent">Page parent</label>
-                                <select id="pageParent" class="form-control">
+                                <select id="pageParent" class="form-control" name="page_id">
                                     <option selected>Choisir...</option>
-                                    <option>...</option>
+                                    @foreach($pages as $page)
+                                        <option value="{{ $page->id }}">{{ $page->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="bgImg">Background-image</label>
-                                <select id="bgImg" class="form-control">
+                                <select id="bgImg" class="form-control" name="bg_url">
                                     <option selected>Choisir...</option>
-                                    <option>...</option>
+                                    @foreach( $imgs_array as $img )
+                                        <option value="{{ $img['dirname'] . '/' . $img['basename'] }}">{{ $img['filename'] }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
