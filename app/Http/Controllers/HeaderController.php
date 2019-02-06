@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Headers;
 use Illuminate\Http\Request;
-use App\Pages;
 
-class PagesController extends Controller
+class HeaderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,16 +14,24 @@ class PagesController extends Controller
      */
     public function index()
     {
-        $pages = Pages::all();
+        $headers = Headers::all();
         $success = (session('success')) ? session('success') : false;
         $error = (session('error')) ? session('error') : false;
 
-        $datas = array('pages' => $pages);
+        $datas = array('headers' => $headers);
         
+        foreach ($headers as $header){
+            
+            $img_name = explode('/', $header->bg_url);
+            $img_name = array_pop($img_name);
+            $header->bg_url = $img_name;
+            $header = $header->page;
+            
+        }
         if ($success != false) $datas['success'] = $success;
         if ($error != false) $datas['error'] = $error;
-
-        return view('admin/pages/index', $datas);
+//        dd($headers);
+        return view('admin/headers/index', $datas);
     }
 
     /**
@@ -33,9 +41,7 @@ class PagesController extends Controller
      */
     public function create()
     {
-        $pageNumber = Pages::all()->count();
-        return view('admin/pages/create',
-                [ 'newPageNumber' => $pageNumber + 1 ]);
+        return view('admin/headers/create');
     }
 
     /**
@@ -46,55 +52,39 @@ class PagesController extends Controller
      */
     public function store(Request $request)
     {
-//        dump($request->all());
-        $request->validate([
-            'name' => 'required|unique:pages|max:255',
-          ]);
-        $page = new Pages([
-            'name' => $request->name,
-          ]);
-        if($page->save()) {
-            
-            return redirect('admin/pages')->with('success', 'Page ajoutée');
-            
-        } else {
-            
-            return redirect('admin/pages')->with('error', 'La page n\'a pas pu être créer');
-        }
-        
-        
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Headers  $headers
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Headers $headers)
     {
-        return 'voir une page';
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Headers  $headers
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Headers $headers)
     {
-        return 'éditer une page';
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Headers  $headers
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Headers $headers)
     {
         //
     }
@@ -102,14 +92,11 @@ class PagesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Headers  $headers
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Headers $headers)
     {
-        $page = Pages::find($id);
-        $page->delete();
-
-        return redirect('/admin/pages')->with('success', 'La page a bien été supprimée');
+        //
     }
 }

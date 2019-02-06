@@ -9,7 +9,8 @@ class Headers extends Model
     protected $table = 'headers';
     
     public function page(){
-        return $this->belongsTo('App\Pages');
+        
+        return $this->belongsTo('App\Pages', 'pages_id');
         
     }
 }

@@ -91,7 +91,7 @@
                                 <a class="nav-link" href="{{ URL::to('admin/pages') }}"><i class="fas fa-pager fa-fw"></i> Pages</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="fas fa-heading fa-fw"></i> En-têtes</a>
+                                <a class="nav-link" href="{{ URL::to('admin/headers') }}"><i class="fas fa-heading fa-fw"></i> En-têtes</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#"><i class="far fa-newspaper fa-fw"></i> Articles</a>
@@ -142,8 +142,32 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12">
-                                <div class="alert"></div>
+                            <div class="col-12">                                
+                                    @isset($success)
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                            <strong>Opération reussie.</strong> {{ $success }}
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                    @endisset
+                                    @isset($error)
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                            <strong>Une erreur est survenue.</strong> {{ $error }}
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                    @endisset
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
                             </div>
                         </div>
                         @yield('content')
