@@ -69,6 +69,7 @@ class HeaderController extends Controller
         $request->validate([
             'site_title' => 'required|unique:headers|max:255',
             'site_subtitle' => 'required|unique:headers|max:255',
+            'pages_id' => 'required|integer'
         ]);
         $header = new Headers([
             'site_title' => $request->site_title,

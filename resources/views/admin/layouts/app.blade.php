@@ -94,7 +94,7 @@
                                 <a class="nav-link" href="{{ URL::to('admin/headers') }}"><i class="fas fa-heading fa-fw"></i> En-têtes</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="far fa-newspaper fa-fw"></i> Articles</a>
+                                <a class="nav-link" href="{{ URL::to('admin/posts') }}"><i class="far fa-newspaper fa-fw"></i> Articles</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#"><i class="far fa-images fa-fw"></i> Médias</a>

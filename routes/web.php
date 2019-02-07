@@ -18,6 +18,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard_admin');
     Route::resource('pages', 'PagesController');
     Route::resource('headers', 'HeaderController');
+    Route::resource('posts', 'PostController');
 });
 
 /* app front end */
