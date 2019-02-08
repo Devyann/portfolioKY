@@ -10538,6 +10538,18 @@ div.pf-main-post {
   background-color: #241858;
 }
 
+aside.main-menu ul li a {
+  color: #dee2e6;
+}
+
+aside.main-menu ul li.active {
+  background-color: #dee2e6;
+}
+
+aside.main-menu ul li.active a {
+  color: black;
+}
+
 div.main-col {
   background-color: #fafafa;
 }

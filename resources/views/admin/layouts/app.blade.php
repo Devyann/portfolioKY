@@ -84,17 +84,17 @@
                 <div class="menu-col col-2 px-0">
                     <aside class="main-menu bg-dark h-100">
                         <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="{{ route('dashboard_admin') }}"><i class="fas fa-sitemap fa-fw"></i> Tableau de bord</a>
+                            <li class="nav-item {{ currentRoute(route('dashboard_admin')) }}">
+                                <a class="nav-link" href="{{ route('dashboard_admin') }}"><i class="fas fa-sitemap fa-fw"></i> Tableau de bord</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ URL::to('admin/pages') }}"><i class="fas fa-pager fa-fw"></i> Pages</a>
+                            <li class="nav-item {{ currentRoute(route('pages.index')) }}">
+                                <a class="nav-link" href="{{ route('pages.index') }}"><i class="fas fa-pager fa-fw"></i> Pages</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ URL::to('admin/headers') }}"><i class="fas fa-heading fa-fw"></i> En-têtes</a>
+                            <li class="nav-item {{ currentRoute(route('headers.index')) }}">
+                                <a class="nav-link" href="{{ route('headers.index') }}"><i class="fas fa-heading fa-fw"></i> En-têtes</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ URL::to('admin/posts') }}"><i class="far fa-newspaper fa-fw"></i> Articles</a>
+                            <li class="nav-item {{ currentRoute(route('posts.index')) }}">
+                                <a class="nav-link" href="{{ route('posts.index') }}"><i class="far fa-newspaper fa-fw"></i> Articles</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#"><i class="far fa-images fa-fw"></i> Médias</a>

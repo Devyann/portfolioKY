@@ -5,6 +5,7 @@ Création d'un portfolio sur le modèle d'une SPA
 Api et Backend :
 <ul>
     <li>Laravel 5.7</>
+    <li>Intervention/image</li>
 </ul>
 App Frontend : 
     
@@ -17,6 +18,7 @@ App Frontend :
     <li>Axios</li>
     <li>sass</li>
     <li>es6-promise</li>      
+    <li>magnific-popup</li>      
 </ul>
 
 

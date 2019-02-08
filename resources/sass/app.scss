@@ -43,6 +43,8 @@ div.pf-main-post {
 }
 
 // backoffice
+
+// head menu
 .navbar-laravel {
   background-color: $violetsoft;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -50,6 +52,24 @@ div.pf-main-post {
       background-color: $violetdark;
   }
 }
+// menu gauche vertical
+aside.main-menu {
+    ul {
+        li{
+            a {
+                color: $whitesoft;
+            }
+        }
+        li.active {
+            background-color: $whitesoft;
+            a{
+                color: black;
+            }
+        }
+        
+    }
+}
+// corps de page
 div.main-col{
     background-color: $main-bg;
     main {
