@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Repositories\ImageRepository;
 
 class ImageController extends Controller
 {
+    protected $repository;
+    
+    public function __construct(ImageRepository $repository)
+    {
+        $this->repository = $repository;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +20,8 @@ class ImageController extends Controller
      */
     public function index()
     {
-        //
+        $images = $this->repository->getAllImages ();
+        return view('admin/images/index', ['images' => $images]);
     }
 
     /**
@@ -23,7 +31,7 @@ class ImageController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin/images/create');
     }
 
     /**
@@ -34,7 +42,14 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:8192',
+        ]);
+      
+        $this->repository->store($request);
+        
+        return redirect('admin/images')->with('success', 'L\'image a bien été enregistrée');
     }
 
     /**

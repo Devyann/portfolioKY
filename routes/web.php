@@ -19,6 +19,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::resource('pages', 'PagesController');
     Route::resource('headers', 'HeaderController');
     Route::resource('posts', 'PostController');
+    Route::resource('images', 'ImageController');
 });
 
 /* app front end */

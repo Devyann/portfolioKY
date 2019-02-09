@@ -96,8 +96,8 @@
                             <li class="nav-item {{ currentRoute(route('posts.index')) }}">
                                 <a class="nav-link" href="{{ route('posts.index') }}"><i class="far fa-newspaper fa-fw"></i> Articles</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="far fa-images fa-fw"></i> Médias</a>
+                            <li class="nav-item {{ currentRoute(route('images.index')) }}">
+                                <a class="nav-link" href="{{ route('images.index') }}"><i class="far fa-images fa-fw"></i> Médias</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#"><i class="far fa-compass fa-fw"></i> Menu</a>
