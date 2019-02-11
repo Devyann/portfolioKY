@@ -21,6 +21,7 @@ class ImageController extends Controller
     public function index()
     {
         $images = $this->repository->getAllImages ();
+
         return view('admin/images/index', ['images' => $images]);
     }
 
@@ -45,6 +46,7 @@ class ImageController extends Controller
 
         $request->validate([
         'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:8192',
+        'nom_image' => 'required|max:50'    
         ]);
       
         $this->repository->store($request);
@@ -94,6 +96,10 @@ class ImageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $image = Image::find($id);
+        $this->repository->delete($image);
+        $image->delete();
+
+        return redirect('/admin/headers')->with('success', 'L\'en-tête a bien été supprimée');
     }
 }

@@ -21,4 +21,9 @@ class Pages extends Model
         return $this->hasMany('App\Posts');
         
     }
+    public function image(){
+        
+        return $this->belongsTo('App\Image');
+        
+    }
 }

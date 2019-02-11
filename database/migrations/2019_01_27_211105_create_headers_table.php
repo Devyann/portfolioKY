@@ -18,7 +18,7 @@ class CreateHeadersTable extends Migration
             $table->integer('pages_id');
             $table->string('site_title');
             $table->string('site_subtitle');
-            $table->string('bg_url');
+            $table->integer('image_id')->nullable();
             $table->timestamps();
         });
     }

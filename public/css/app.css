@@ -10906,6 +10906,10 @@ div.main-col main .breadcrumb {
   background-color: transparent;
 }
 
+div.main-col main img#preview {
+  max-height: 350px;
+}
+
 label.custom-file-label::after {
   content: "Parcourir";
 }

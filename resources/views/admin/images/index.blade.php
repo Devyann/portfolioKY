@@ -8,16 +8,17 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card-columns">
-                @foreach($images as $image)
-                    <div class="card" id="image{{ $image['filename'] }}">
-                        <a href="{{ url('images/' . $image['basename']) }}" class="image-link">
+                @foreach($images as $image)                    
+                    <div class="card" id="image{{ $image->id }}">
+                        <a href="{{ url($image->imagepath) }}" class="image-link">
                             <img class="card-img-top"
-                                 src="{{ url('thumbs/' . $image['basename']) }}"
+                                 src="{{ url($image->thumbpath) }}"
                                  alt="image">
                         </a>
                         <div class="card-footer text-muted">
-                            <div class="text-right">
-                                <form action="{{ route('images.destroy', $image['filename']) }}" method="POST">                                   
+                            <div class="text-right d-flex justify-content-between">
+                                <em>{{ $image->name }}</em>
+                                <form action="{{ route('images.destroy', $image->id) }}" method="POST">                                   
                                     @method('DELETE')
                                     @csrf
                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>

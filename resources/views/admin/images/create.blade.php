@@ -14,6 +14,10 @@
                     <form method="POST" action="{{ route('images.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
+                            <label for="imageName">Nom</label>
+                            <input type="text" name="nom_image" class="form-control" id="imageName" placeholder="Nom de l'image">
+                        </div>
+                        <div class="form-group">
                             <div class="custom-file">
                                 <input type="file" id="image" name="image"
                                        class="custom-file-input" required>

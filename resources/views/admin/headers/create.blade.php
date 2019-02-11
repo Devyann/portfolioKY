@@ -37,11 +37,14 @@
                                 <label for="bgImg">Background-image</label>
                                 <select id="bgImg" class="form-control" name="bg_url">
                                     <option selected>Choisir...</option>
-                                    @foreach( $imgs_array as $img )
-                                        <option value="{{ $img['dirname'] . '/' . $img['basename'] }}">{{ $img['filename'] }}</option>
+                                    @foreach( $images as $img )
+                                        <option value="{{ $img->id }}" data-imgurl="{{ asset($img->thumbpath) }}">{{ $img->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
+                        </div>
+                        <div class="form-group d-flex justify-content-center">
+                            <img id="preview" class="img-fluid" src="#" alt="">
                         </div>
                         <button type="submit" class="btn btn-primary">Valider</button>
                     </form>
@@ -53,6 +56,20 @@
 @endsection
 @section('page-script')
 <script>
-    
+    $(() => {
+            $(document).on("change","select",function(){
+                $("option[value=" + this.value + "]", this)
+                .attr("selected", true).siblings()
+                .removeAttr("selected")
+            });
+            $('#bgImg').on('change', (e) => {
+                let that = e.currentTarget;
+                console.log(that.value);
+                console.log($('#bgImg option:selected').attr('data-imgurl'));
+                let imgUrl = $('#bgImg option:selected').attr('data-imgurl');
+                $('#preview').attr('src', imgUrl);
+                console.log($('#preview').attr('src'));
+            });
+        }); 
 </script>
 @endsection

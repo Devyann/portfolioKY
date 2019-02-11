@@ -77,6 +77,10 @@ div.main-col{
         .breadcrumb {
             background-color: transparent;
         }
+        // prévisualisation image dans formulaires
+        img#preview{
+            max-height: 350px;
+        }
     }
 }
 

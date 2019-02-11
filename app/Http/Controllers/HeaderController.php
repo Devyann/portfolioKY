@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Headers;
 use App\Pages;
+use App\Image;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\Finder\SplFileInfo;
@@ -22,15 +24,7 @@ class HeaderController extends Controller
         $error = (session('error')) ? session('error') : false;
 
         $datas = array('headers' => $headers);
-        
-        foreach ($headers as $header){
-            
-            $img_name = explode('/', $header->bg_url);
-            $img_name = array_pop($img_name);
-            $header->bg_url = $img_name;
-            $header = $header->page;
-            
-        }
+
         if ($success != false) $datas['success'] = $success;
         if ($error != false) $datas['error'] = $error;
 //        dd($headers);
@@ -46,15 +40,10 @@ class HeaderController extends Controller
     {
         $pages = Pages::all();
 
-        $bg_imgs = \File::files('images');
-        $imgs_array = array();
-        foreach ($bg_imgs as $bg_img){
+        $bg_imgs = Image::all();
+        
 
-            $imgs_array[] = pathinfo($bg_img);
-            
-        }
-
-        return view('admin/headers/create', ['imgs_array' => $imgs_array,
+        return view('admin/headers/create', ['images' => $bg_imgs,
                                              'pages' => $pages]);
     }
 
@@ -75,7 +64,7 @@ class HeaderController extends Controller
             'site_title' => $request->site_title,
             'site_subtitle' => $request->site_subtitle,
             'pages_id' => $request->page_id,
-            'bg_url' => $request->bg_url
+            'image_id' => $request->bg_url
           ]);
         if($header->save()) {
             

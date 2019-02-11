@@ -15,7 +15,7 @@ class HeadersTableSeeder extends Seeder
             'pages_id' => 1,
             'site_title' => 'Yannick Khemaja',
             'site_subtitle' => 'Développeur Web',
-            'bg_url' => '/images/home_main.jpg',
+            'image_id' => 1,
             
         ]);
     }

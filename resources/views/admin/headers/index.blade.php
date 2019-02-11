@@ -23,7 +23,7 @@
                             <tr>
                                 <td class="text-center">{{ $header->site_title }}</td>
                                 <td class="text-center">{{ $header->site_subtitle }}</td>
-                                <td class="text-center">{{ $header->bg_url }}</td>
+                                <td class="text-center">{{ $header->image->name }}</td>
                                 <td class="text-center">{{ $header->page->name }}</td>
                                 <td class="text-center">
                                     <form action="{{ route('headers.destroy', $header->id) }}" method="POST">
