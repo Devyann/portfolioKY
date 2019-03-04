@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Posts;
 use App\Pages;
+use App\Image;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -40,8 +41,9 @@ class PostController extends Controller
     public function create()
     {
         $pages = Pages::all();
-
-        return view('admin/posts/create', ['pages' => $pages]);
+        $images = Image::all();
+        return view('admin/posts/create', ['pages' => $pages,
+                                            'images' => $images]);
     }
 
     /**
@@ -94,7 +96,9 @@ class PostController extends Controller
             'order' => $ordre, 
             'links' => json_encode($links)
           ]);
-        dd($post);
+        
+        if ($request->bg_url !=  'none') $post->image_id = (int) $request->bg_url;
+        
         if($post->save()) {
             
             return redirect('admin/posts')->with('success', 'Article ajouté');

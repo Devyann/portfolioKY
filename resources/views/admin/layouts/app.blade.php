@@ -22,8 +22,8 @@
     <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.min.css') }}"/>
 
 </head>
-<body>
-    <div id="app" class="h-100">
+<body class="d-flex">
+    <div id="app" class="w-100 d-flex flex-column">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel p-0">
             <div class="container-fluid m-0 p-0">
                 <div class="row w-100 m-0">
@@ -79,8 +79,8 @@
                 </div>
             </div>
         </nav>
-        <div class="container-fluid h-100 p-0">
-            <div class="row h-100 m-0">
+        <div class="container-fluid h-100 p-0 d-flex">
+            <div class="row m-0 w-100">
                 <div class="menu-col col-2 px-0">
                     <aside class="main-menu bg-dark h-100">
                         <ul class="nav flex-column">
@@ -112,7 +112,7 @@
                     </aside>
                 </div>
                 <div class="main-col col-10 h-100">
-                    <main class="py-4 h-100">
+                    <main class="py-4 h-100 d-flex flex-column">
                         <div class="row justify-content-end">
                             <div class="col-12 px-4">
                                 <div class="text-right text-secondary">
@@ -142,7 +142,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12">                                
+                            <div class="col-12" id="block-alert">                                
                                     @isset($success)
                                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                                             <strong>Opération reussie.</strong> {{ $success }}
@@ -178,6 +178,27 @@
         
     </div> 
     <script type="text/javascript" src="{{ asset('js/jquery.dataTables.min.js') }}" defer></script>
+    <script>
+        // traitement de l'attribut selected des balises select
+        $(document).on("change","select",function(){
+                $("option[value=" + this.value + "]", this)
+                .attr("selected", true).siblings()
+                .removeAttr("selected")
+            });
+        // preview background-image
+        $(() => {           
+            $('#bgImg').on('change', (e) => {
+                let that = e.currentTarget;
+                let imgUrl = $('#bgImg option:selected').attr('data-imgurl');
+                $('#preview').attr('src', imgUrl);
+            });
+            $('#rounded_img').on('change', (e) => {
+                let that = e.currentTarget;
+                let imgUrl = $('#rounded_img option:selected').attr('data-imgurl');
+                $('#preview_2').attr('src', imgUrl);
+            });
+        }); 
+    </script>
     @yield('page-script')
 </body>
 </html>

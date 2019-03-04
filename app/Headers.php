@@ -8,7 +8,7 @@ class Headers extends Model
 {
     protected $table = 'headers';
     
-    protected $fillable = ['site_title', 'site_subtitle', 'pages_id', 'image_id'];
+    protected $fillable = ['site_title', 'site_subtitle', 'pages_id', 'image_id', 'rounded_image_id'];
     
     public function page(){
         
@@ -18,6 +18,11 @@ class Headers extends Model
     public function image(){
         
         return $this->belongsTo('App\Image');
+        
+    }
+    public function rounded_image(){
+        
+        return $this->belongsTo('App\Image', 'rounded_image_id');
         
     }
 }

@@ -33,18 +33,21 @@
                                     @endforeach
                                 </select>
                             </div>
+                            @include('admin/components/background_select', ['class' => 'col-md-6', 'name' => 'bg_url', 'label' => 'Background-image', 'id' => 'bgImg'])
+                        </div>
+                        @include('admin/components/image_preview', ['element_id' => 'bgImg', 'id' => 'preview', 'class' => ''])
+                        <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="bgImg">Background-image</label>
-                                <select id="bgImg" class="form-control" name="bg_url">
-                                    <option selected>Choisir...</option>
-                                    @foreach( $images as $img )
-                                        <option value="{{ $img->id }}" data-imgurl="{{ asset($img->thumbpath) }}">{{ $img->name }}</option>
-                                    @endforeach
-                                </select>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="Check1" name="center_rounded_image">
+                                    <label class="form-check-label" for="Check1">Ajouter une photo ronde centrale</label>
+                                </div> 
                             </div>
                         </div>
-                        <div class="form-group d-flex justify-content-center">
-                            <img id="preview" class="img-fluid" src="#" alt="">
+                        <div class="form-row d-none" id="rounded_img_select">
+                            @include('admin/components/background_select', ['class' => 'col-md-6 rounded_img', 'name' => 'rounded_image_id', 'label' =>'Image arrondie', 'id' => 'rounded_img'])
+                        
+                            @include('admin/components/image_preview', ['element_id' => 'rounded_img', 'id' => 'preview_2', 'class' => 'col-md-6'])
                         </div>
                         <button type="submit" class="btn btn-primary">Valider</button>
                     </form>
@@ -53,23 +56,14 @@
         </div>
     </div>
 </div>
+<div id="app"></div>
 @endsection
 @section('page-script')
 <script>
-    $(() => {
-            $(document).on("change","select",function(){
-                $("option[value=" + this.value + "]", this)
-                .attr("selected", true).siblings()
-                .removeAttr("selected")
-            });
-            $('#bgImg').on('change', (e) => {
-                let that = e.currentTarget;
-                console.log(that.value);
-                console.log($('#bgImg option:selected').attr('data-imgurl'));
-                let imgUrl = $('#bgImg option:selected').attr('data-imgurl');
-                $('#preview').attr('src', imgUrl);
-                console.log($('#preview').attr('src'));
-            });
-        }); 
+    $(document).ready(function(){
+        $("#Check1").change(function(){
+            $("#rounded_img_select").toggleClass("d-none");
+        });
+    });
 </script>
 @endsection

@@ -6,7 +6,7 @@ Vue.use(VueRouter);
     Import des composants
  */
 import Home from './components/home.vue';
-//import Products from './components/produits.vue';
+
 
 // 2. Définition des routes
 // Chaque route doit être mappée à un composant

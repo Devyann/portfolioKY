@@ -14,6 +14,7 @@
                             <th class="text-center">Titre</th>
                             <th class="text-center">Sous-titre</th>
                             <th class="text-center">Background</th>
+                            <th class="text-center">Image Arrondie</th>
                             <th class="text-center">Page parent</th>
                             <th class="text-center">Actions</th>
                         </tr>
@@ -23,7 +24,18 @@
                             <tr>
                                 <td class="text-center">{{ $header->site_title }}</td>
                                 <td class="text-center">{{ $header->site_subtitle }}</td>
-                                <td class="text-center">{{ $header->image->name }}</td>
+                                <td class="text-center">@if(isset($header->image))
+                                                            {{ $header->image->name }}
+                                                        @else 
+                                                             - 
+                                                        @endif
+                                </td>
+                                <td class="text-center">@if(isset($header->rounded_image))
+                                                            {{ $header->rounded_image->name }}
+                                                        @else 
+                                                             - 
+                                                        @endif
+                                </td>
                                 <td class="text-center">{{ $header->page->name }}</td>
                                 <td class="text-center">
                                     <form action="{{ route('headers.destroy', $header->id) }}" method="POST">
@@ -42,17 +54,25 @@
         </div>
     </div>
 </div>
+<div id="app"></div>
 @endsection
 @section('page-script')
 <script>
     window.$ = $;
     $(document).ready(function() {
-        console.log($('#table'));
         $('#table').dataTable({
             language: {
                 url: '/js/french.json'
-            }
+            },
+            "autoWidth": false, 
+            "columns": [
+                { "width": "20%" },                
+                { "width": "20%" },                
+                { "width": "18%" },                
+                { "width": "17%" },                
+                { "width": "25%" }                
+            ]
         });
-    } );
+    });
 </script>
 @endsection

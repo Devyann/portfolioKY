@@ -19,6 +19,7 @@ class CreateHeadersTable extends Migration
             $table->string('site_title');
             $table->string('site_subtitle');
             $table->integer('image_id')->nullable();
+            $table->integer('rounded_image_id')->nullable();
             $table->timestamps();
         });
     }

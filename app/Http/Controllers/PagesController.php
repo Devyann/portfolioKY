@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pages;
+use App\Image;
 
 class PagesController extends Controller
 {
@@ -15,10 +16,12 @@ class PagesController extends Controller
     public function index()
     {
         $pages = Pages::all();
+        $images = Image::all();
         $success = (session('success')) ? session('success') : false;
         $error = (session('error')) ? session('error') : false;
 
-        $datas = array('pages' => $pages);
+        $datas = array('pages' => $pages,
+                        'images' => $images);
         
         if ($success != false) $datas['success'] = $success;
         if ($error != false) $datas['error'] = $error;
@@ -33,9 +36,11 @@ class PagesController extends Controller
      */
     public function create()
     {
-        $pageNumber = Pages::all()->count();
+
+        $images = Image::all();
+        
         return view('admin/pages/create',
-                [ 'newPageNumber' => $pageNumber + 1 ]);
+                ['images' => $images]);
     }
 
     /**
@@ -46,13 +51,14 @@ class PagesController extends Controller
      */
     public function store(Request $request)
     {
-//        dump($request->all());
+//        dd($request->all());
         $request->validate([
             'name' => 'required|unique:pages|max:255',
           ]);
         $page = new Pages([
             'name' => $request->name,
           ]);
+        if ($request->bg_url !=  'none') $page->image_id = (int) $request->bg_url;
         if($page->save()) {
             
             return redirect('admin/pages')->with('success', 'Page ajoutée');

@@ -20,7 +20,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="d-flex justify-content-center">
     <div id="app" class="h-100">
         <index></index>
     </div>

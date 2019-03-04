@@ -55,16 +55,18 @@ class HeaderController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($request->all());
         $request->validate([
             'site_title' => 'required|unique:headers|max:255',
             'site_subtitle' => 'required|unique:headers|max:255',
-            'pages_id' => 'required|integer'
+            'page_id' => 'required|integer'
         ]);
         $header = new Headers([
             'site_title' => $request->site_title,
             'site_subtitle' => $request->site_subtitle,
             'pages_id' => $request->page_id,
-            'image_id' => $request->bg_url
+            'image_id' => $request->bg_url,
+            'rounded_image_id'=> $request-> rounded_image_id
           ]);
         if($header->save()) {
             
@@ -82,9 +84,11 @@ class HeaderController extends Controller
      * @param  \App\Headers  $headers
      * @return \Illuminate\Http\Response
      */
-    public function show(Headers $headers)
+    public function show(Headers $headers, $id)
     {
-        //
+        $header = Headers::find($id);
+        
+        return view('admin/headers/show', ['header' => $header]);
     }
 
     /**
@@ -93,9 +97,16 @@ class HeaderController extends Controller
      * @param  \App\Headers  $headers
      * @return \Illuminate\Http\Response
      */
-    public function edit(Headers $headers)
+    public function edit($id)
     {
-        //
+
+        $header = Headers::find($id);
+        $pages = Pages::all();
+        $images = Image::all();
+        
+        return view('admin/headers/edit', ['header' => $header,
+                                            'pages' => $pages,
+                                            'images' => $images]);
     }
 
     /**
@@ -105,9 +116,24 @@ class HeaderController extends Controller
      * @param  \App\Headers  $headers
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Headers $headers)
+    public function update(Request $request, $id)
     {
-        //
+//        dd($request->all());
+        $request->validate([
+            'site_title' => 'required|max:255|unique:headers,site_title,' . $id,
+            'site_subtitle' => 'required|max:255|unique:headers,site_subtitle,' .$id,
+            'page_id' => 'required|integer'
+        ]);
+        $header = Headers::find($id);
+        $header->site_title = $request->site_title;
+        $header->site_subtitle = $request->site_subtitle;
+        $header->pages_id = $request->page_id;
+        $header->image_id = $request->bg_url;
+        $header->rounded_image_id = $request->rounded_image_id;
+        $header->save();
+        
+        return redirect('/admin/headers/' . $id);
+        
     }
 
     /**

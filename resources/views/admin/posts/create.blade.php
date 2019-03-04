@@ -33,9 +33,9 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="form-group col-md-6">
-                            </div>
+                            @include('admin/components/background_select', ['class' => 'col-md-6'])
                         </div>
+                        @include('admin/components/image_preview')
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for="content">Contenu</label>
@@ -69,6 +69,7 @@
         </div>
     </div>
 </div>
+<div id="app"></div>
 @endsection
 @section('page-script')
 <script>

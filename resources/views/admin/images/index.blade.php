@@ -31,6 +31,7 @@
         </div>
     </div>
 </div>
+<div id="app"></div>
 @endsection
 @section('page-script')
 <script>

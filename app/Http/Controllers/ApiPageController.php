@@ -27,7 +27,8 @@ class ApiPageController extends Controller
         
         $home = Pages::where('name', 'home')->first();
         $header = $home->header;
-        $header = array('siteTitle' => $header['site_title'], 'siteSubtitle' => $header['site_subtitle'], 'bgUrl' => $header['bg_url']);
+//        return response()->json($header);
+        $header = array('siteTitle' => $header['site_title'], 'siteSubtitle' => $header['site_subtitle'], 'bgUrl' => $header->image->imagepath, 'rounded_image' => $header->rounded_image->imagepath);
         $posts = $home->posts;
         $computed_posts = array();
         foreach ($posts as $post) {

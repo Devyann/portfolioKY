@@ -6,6 +6,7 @@
 
 require('./bootstrap');
 import 'es6-promise/auto'
+
 import Vue from 'vue'; // Importing Vue Library
 window.Vue = Vue;
 import VueRouter from 'vue-router'; // importing Vue router library
@@ -16,7 +17,8 @@ Vue.use(BootstrapVue);
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import { RadialMenu,  RadialMenuItem } from 'vue-radial-menu';
-import store from './store'; // importing vueX
+import store from './store' // importing vueX
+import VScrollin from "vue-scrollin"; // importing vue scrolling
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -31,4 +33,5 @@ const app = new Vue({
     el: '#app',
     router,
     store,
+
 });
