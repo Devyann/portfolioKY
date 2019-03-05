@@ -28,6 +28,8 @@ class ApiPageController extends Controller
         $home = Pages::where('name', 'home')->first();
         $header = $home->header;
 //        return response()->json($header);
+        $bgUrl = ($header->image) ? $header->image->imagepath : '';
+        $rounded_image = ($header->rounded_image) ? $header->rounded_image->imagepath : '';
         $header = array('siteTitle' => $header['site_title'], 'siteSubtitle' => $header['site_subtitle'], 'bgUrl' => $header->image->imagepath, 'rounded_image' => $header->rounded_image->imagepath);
         $posts = $home->posts;
         $computed_posts = array();
