@@ -1,10 +1,10 @@
 <template>
-    <b-container class="pf-main no-gutters">
+    <b-container id="page-wrap" class="pf-main no-gutters col-lg-12">
         <div class="d-flex flex-column align-items-center justify-content-between h-100">
-            <b-container class="pf-router-content no-gutters h-75">
+            <b-container class="pf-router-content no-gutters h-75 container col-lg-12 d-flex justify-content-center parallax-wrapper">
                 <router-view></router-view>
             </b-container>  
-            <b-container id="radial_menu" class="h-25">
+            <b-container id="radial_menu" class="h-25 d-md-none">
                 <radial-menu
                 style="margin: auto; margin-top: 15%; background-color: white"
                 :itemSize="50"
@@ -31,12 +31,12 @@
 </style>
 <script>
 
-import { RadialMenu,  RadialMenuItem } from 'vue-radial-menu'
+import { RadialMenu,  RadialMenuItem } from 'vue-radial-menu';
 
 export default {
   components: {
     RadialMenu,
-    RadialMenuItem
+    RadialMenuItem,
   },
   data () {
         

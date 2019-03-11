@@ -1,6 +1,6 @@
 <template>
-    <b-container class="d-flex flex-column align-items-center justify-content-between no-gutters h-100">
-        <PfHeader></PfHeader>
+    <b-container class="d-flex flex-column align-items-center justify-content-between no-gutters h-100 col-md">
+        <PfHeader class="section parallax"></PfHeader>
         <PfMain></PfMain>
     </b-container>
        
@@ -8,10 +8,11 @@
 <script>
     import PfMain from "./pf_main.vue";
     import PfHeader from "./pf_header.vue";
+    
     export default {
         components: {
            PfMain,
-           PfHeader
+           PfHeader,
         },
         data() {
             

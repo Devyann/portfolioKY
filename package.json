@@ -31,6 +31,7 @@
         "datatables.net-dt": "^1.10.19",
         "es6-promise": "^4.2.5",
         "jQuery": "^1.7.4",
+        "vue-burger-menu": "^2.0.1",
         "vue-radial-menu": "^1.1.1",
         "vue-router": "^3.0.2",
         "vue-scrollin": "^0.1.2",

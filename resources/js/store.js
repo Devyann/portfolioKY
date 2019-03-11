@@ -13,9 +13,9 @@ export default new Vuex.Store({
         bgUrl: (state) => {
             return state.page.header.bgUrl;
         },
-        rounded_image_url : (state) => {
-            return state.page.header.rounded_image;
-        }
+//        rounded_image_url : (state) => {
+//            return state.page.header.rounded_image;
+//        }
     },
     mutations: {
         setData(state, data) {

@@ -19,7 +19,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 import { RadialMenu,  RadialMenuItem } from 'vue-radial-menu';
 import store from './store' // importing vueX
 import VScrollin from "vue-scrollin"; // importing vue scrolling
-
+import { Push } from 'vue-burger-menu';
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -33,5 +33,8 @@ const app = new Vue({
     el: '#app',
     router,
     store,
+    components: {
+        Push
+    }
 
 });

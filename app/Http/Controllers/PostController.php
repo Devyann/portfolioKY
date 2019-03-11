@@ -60,8 +60,8 @@ class PostController extends Controller
             'post_subtitle' => 'required|unique:posts|max:255',
             'pages_id' => 'required|integer',
             'content' => 'required',
-            'linkA' => 'url|max:255',
-            'linkB' => 'url|max:255',
+            'linkA' => 'url|max:255|nullable',
+            'linkB' => 'url|max:255|nullable',
             'nameLinkA' => 'required_with:linkA',
             'nameLinkA' => 'required_with:linkB',
         ]);
@@ -126,9 +126,37 @@ class PostController extends Controller
      * @param  \App\Posts  $posts
      * @return \Illuminate\Http\Response
      */
-    public function edit(Posts $posts)
+    public function edit($id)
     {
-        //
+        $post = Posts::find($id);
+        $linkA = null;
+        $linkB = null;
+        if ($post->links){
+
+            $links = json_decode($post->links);
+            $links_count = count($links);
+            
+            for ($i = 0; $i < $links_count; $i++){
+                
+                if ($i % 2 == 0){
+                    $linkA = $links[$i];
+                }
+                else {
+                    $linkB = $links[$i];
+                }
+            }
+        }
+//        dd($linkA, $linkB);
+        
+        $pages = Pages::all();
+        $images = Image::all();
+        
+        return view('admin/posts/edit', ['post' => $post,
+                                            'pages' => $pages,
+                                            'images' => $images,
+                                            'linkA' => $linkA,
+                                            'linkB' => $linkB,
+            ]);
     }
 
     /**
