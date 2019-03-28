@@ -1,7 +1,7 @@
 <template>
     <b-container id="page-wrap" class="pf-main no-gutters col-lg-12">
-        <div class="d-flex flex-column align-items-center justify-content-between h-100">
-            <b-container class="pf-router-content no-gutters h-75 container col-lg-12 d-flex justify-content-center parallax-wrapper">
+        <div class="d-flex flex-column align-items-center h-100">
+            <b-container class="pf-router-content no-gutters container col-lg-12 d-flex justify-content-center parallax-wrapper">
                 <router-view></router-view>
             </b-container>  
             <b-container id="radial_menu" class="h-25 d-md-none">
@@ -62,6 +62,11 @@ export default {
   methods: {
     handleClick (route) {
       this.lastClicked = route.name;
+      this.$store.commit('setPageRouting', this.lastClicked);
+    },
+    action: function (route) {
+      this.lastClicked = route.name;
+      console.log('coucou');
       this.$store.commit('setPageRouting', this.lastClicked);
     }
   },

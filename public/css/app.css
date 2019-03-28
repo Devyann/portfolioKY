@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css?family=Overlock+SC|Righteous|ZCOOL+QingKe+HuangYou);/*!
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css?family=Overlock+SC|Righteous|ZCOOL+QingKe+HuangYou);@import url(https://fonts.googleapis.com/css?family=Audiowide);/*!
  * Font Awesome Free 5.7.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
@@ -10889,6 +10889,10 @@ div.bm-burger-button {
   z-index: 10;
 }
 
+.bm-menu {
+  background-color: #141508 !important;
+}
+
 .parallax-wrapper {
   /* The height needs to be set to a fixed value for the effect to work.
    * 100vh is the full height of the viewport. */
@@ -10931,7 +10935,7 @@ div.bm-burger-button {
   /* Force the background image to fill the whole element. */
   background-size: 100%;
   /* Keep the image from overlapping sibling elements. */
-  z-index: -1;
+  z-index: 0;
 }
 
 div.pf-main.container {
@@ -10947,7 +10951,7 @@ div.pf-main.container .card {
 div.pf-header {
   position: relative;
   background-color: transparent;
-  height: 49%;
+  /*height: 49%;*/
   /*border-bottom: solid black;*/
   box-shadow: 0px 6px 6px #adb5bd;
 }
@@ -10966,12 +10970,12 @@ div.pf-header div.bg-mask {
 div.pf-header h1 {
   background: rgba(0, 0, 0, 0.6);
   font-size: 2.2rem;
-  font-family: "ZCOOL QingKe HuangYou", cursive;
+  font-family: "Audiowide", cursive;
 }
 
 div.pf-header h3 {
   background: rgba(0, 0, 0, 0.6);
-  font-family: "ZCOOL QingKe HuangYou", cursive;
+  font-family: "Audiowide", cursive;
   /*font-size: 2.2rem;*/
 }
 
@@ -10993,8 +10997,34 @@ div.pf-header div#photo_identite {
 
 div.pf-main-post {
   /*height: 49%;*/
-  min-height: 400px;
-  font-family: "Overlock SC", cursive;
+  /*min-height: 400px;*/
+  font-family: "Nunito", sans-serif;
+}
+
+li.skill-bar {
+  margin: 0.5em 0 0.5em;
+  border: 0.1em solid #696969;
+  border-radius: 3px;
+  background: darkgray;
+  list-style: none;
+  overflow: hidden;
+}
+
+li.skill-bar div {
+  position: relative;
+  height: 1.4em;
+  background: #3e4fa0ba;
+  font-size: 0.6em;
+}
+
+li.skill-bar div label:first-child {
+  position: absolute;
+  left: 8px;
+}
+
+li.skill-bar div label:last-child {
+  position: absolute;
+  right: 6px;
 }
 
 .navbar-laravel {

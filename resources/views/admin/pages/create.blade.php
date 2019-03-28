@@ -18,9 +18,9 @@
                                 <label for="inputPageName">Nom</label>
                                 <input type="text" name="name" class="form-control" id="inputPageName" placeholder="Nom">
                             </div>
-                            @include('admin/components/background_select', ['class' => 'col-md-6', 'name' => 'bg_url', 'label' => 'Background-image'])
+                            @include('admin/components/background_select', ['class' => 'col-md-6', 'name' => 'bg_url', 'label' => 'Background-image', 'id' => 'bgImg'])
                         </div>
-                        @include('admin/components/image_preview')
+                        @include('admin/components/image_preview', ['element_id' => 'bgImg', 'id' => 'preview', 'class' => ''])                           
                         <button type="submit" class="btn btn-primary mb-2">Créer</button>
                     </form>
               </div>

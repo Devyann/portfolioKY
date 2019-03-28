@@ -13,6 +13,7 @@
                 <div class="card-body">
                     <form method="post" action="{{ route('posts.update', $post->id) }}">
                         @csrf
+                        {{ method_field('PUT') }}
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="postMainTitle">Titre</label>

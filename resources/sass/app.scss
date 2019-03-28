@@ -2,6 +2,7 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 @import url('https://fonts.googleapis.com/css?family=Overlock+SC|Righteous|ZCOOL+QingKe+HuangYou');
+@import url('https://fonts.googleapis.com/css?family=Audiowide');
 // Variables
 @import 'variables';
 
@@ -60,6 +61,9 @@ div.diagonal-effect {
 div.bm-burger-button{
     z-index: 10;
 }
+.bm-menu {
+    background-color: #141508 !important;
+}
 // parallax
 .parallax-wrapper {
   /* The height needs to be set to a fixed value for the effect to work.
@@ -103,7 +107,7 @@ div.bm-burger-button{
   /* Force the background image to fill the whole element. */
   background-size: 100%;
   /* Keep the image from overlapping sibling elements. */ 
-  z-index: -1;
+  z-index: 0;
 }
 
 div.pf-main.container {
@@ -117,7 +121,7 @@ div.pf-main.container {
 div.pf-header {
     position: relative;
     background-color: transparent;
-    height: 49%;
+    /*height: 49%;*/
     /*border-bottom: solid black;*/
     box-shadow: 0px 6px 6px #adb5bd;
     @media (min-width: $breakpoint-target) {
@@ -130,11 +134,11 @@ div.pf-header {
     h1 {
         background: rgba(0, 0, 0, 0.6);
         font-size: 2.2rem;
-        font-family: 'ZCOOL QingKe HuangYou', cursive;
+        font-family: $font-family-for-title;
     }
     h3 {
         background: rgba(0, 0, 0, 0.6);
-        font-family: 'ZCOOL QingKe HuangYou', cursive;
+        font-family: $font-family-for-title;
         /*font-size: 2.2rem;*/
     }
     div#photo_identite {
@@ -154,10 +158,34 @@ div.pf-header {
 }
 div.pf-main-post {
     /*height: 49%;*/
-    min-height: 400px;
-    font-family: $font-family-for-title;
+    /*min-height: 400px;*/
+    font-family: $font-family-sans-serif;
 }
+// skills bars
+li.skill-bar {
+	margin: 0.5em 0 0.5em;
+	border: 0.1em solid $gray-color;
+	border-radius: 3px;
+	background: lighten($gray-color, 25%);
+	list-style: none;
+	overflow: hidden;
+	
+	div {
+		position: relative;
+		height: 1.4em;
+		background: $loading-color;
+		font-size: 0.6em;
 
+		label:first-child {
+			position: absolute;
+			left: 8px;
+		}
+		label:last-child {
+			position: absolute;
+			right: 6px;
+		}
+	}
+    }
 // backoffice
 
 // head menu

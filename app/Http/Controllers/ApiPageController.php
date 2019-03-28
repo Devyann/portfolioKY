@@ -12,12 +12,22 @@ class ApiPageController extends Controller
     
     public function index($route){
         
+        $this->route = $route;
+        
         switch ($route){
             
             case 'home':
-                $this->route = $route;
+                
                 return $this->home();
+                
                 break;
+            
+            case 'skills':
+                
+                return $this->skills();
+                
+                break;
+            
             default :
                 return $this->home();
         }
@@ -28,22 +38,36 @@ class ApiPageController extends Controller
         $home = Pages::where('name', 'home')->first();
         $header = $home->header;
 //        return response()->json($header);
-        $bgUrl = (empty($header->image)) ? $header->image->imagepath : '';
-        $rounded_image = (empty($header->rounded_image)) ? $header->rounded_image->imagepath : '';
-        $header = array('siteTitle' => $header['site_title'], 'siteSubtitle' => $header['site_subtitle'], 'bgUrl' => $header->image->imagepath, 'rounded_image' => $header->rounded_image->imagepath);
+        $bgUrl = (!empty($header->image)) ? $header->image->imagepath : '';
+        $rounded_image = (!empty($header->rounded_image)) ? $header->rounded_image->imagepath : '';
+        $header = array('siteTitle' => $header['site_title'], 'siteSubtitle' => $header['site_subtitle'], 'bgUrl' => $bgUrl, 'rounded_image' => $rounded_image);
         $posts = $home->posts;
+
         $computed_posts = array();
         foreach ($posts as $post) {
             
             $post = array('title' => $post['post_title'],
                           'subtitle' => $post['post_subtitle'],
                           'content' => $post['content'], 
-                          'links' => json_decode($post['links'])
+                          'links' => json_decode($post['links']),
+                          'bg_image' => $post->image['imagepath']
                 );
             
             $computed_posts[] = $post;
         }
         $page = array('header' => $header, 'posts' => $computed_posts);
         return response()->json($page);
+    }
+    protected function skills(){
+        
+        $skills = Pages::where('name', 'skills')->first();
+//        return response()->json($skills->image->imagepath);
+        $image = $skills->image->imagepath;
+        $bgUrl = (!empty($image)) ? $image : '';
+        $posts = $skills->posts;
+        $page = array('bg_url' => $bgUrl, 'posts' => $posts);
+        $datas = array('coucou');
+        return response()->json($page);
+        
     }
 }

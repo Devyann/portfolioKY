@@ -6,6 +6,8 @@ Vue.use(VueRouter);
     Import des composants
  */
 import Home from './components/home.vue';
+import Skills from "./components/skills.vue";
+import Contact from "./components/contact.vue";
 
 
 // 2. Définition des routes
@@ -14,13 +16,24 @@ const routes = [
     {
         path: '/vueapp/public/home',
         name: 'home',
-        component: Home
+        component: Home,
+        icon: 'fas fa-home',
+        nom: 'Accueil'
     },
-//    {
-//        path: '/vueapp/public/products',
-//        name: 'products',
-//        component: Products
-//    }
+    {
+        path: '/vueapp/public/skills',
+        name: 'skills',
+        component: Skills,
+        icon: 'fas fa-graduation-cap',
+        nom: 'Compétences'
+    },
+    {
+        path: '/vueapp/public/contact',
+        name: 'contact',
+        component: Contact,
+        icon: 'fas fa-id-card',
+        nom: 'Contact'
+    }
 ]
 
 

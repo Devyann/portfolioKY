@@ -117,7 +117,7 @@ class PostController extends Controller
      */
     public function show(Posts $posts)
     {
-        //
+        dd('show');
     }
 
     /**
@@ -146,7 +146,6 @@ class PostController extends Controller
                 }
             }
         }
-//        dd($linkA, $linkB);
         
         $pages = Pages::all();
         $images = Image::all();
@@ -166,9 +165,43 @@ class PostController extends Controller
      * @param  \App\Posts  $posts
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Posts $posts)
+    public function update(Request $request, $id)
     {
-        //
+
+        $request->validate([
+            'post_title' => 'required|unique:posts,post_title,' . $id,
+            'post_subtitle' => 'required|unique:posts,post_title,' . $id,
+            'page_id' => 'required|integer',
+            'content' => 'required',
+            'linkA' => 'url|max:255|nullable',
+            'linkB' => 'url|max:255|nullable',
+            'nameLinkA' => 'required_with:linkA',
+            'nameLinkA' => 'required_with:linkB',
+        ]);
+        
+        $links = array();
+        if (isset($request->linkA)){
+            
+            $links[] = array('name' => $request->nameLinkA,
+                             'href' => $request->linkA);
+            
+        }
+        if (isset($request->linkB)){
+            
+            $links[] = array('name' => $request->nameLinkB,
+                             'href' => $request->linkB);
+            
+        }
+        $post = Posts::find($id);
+        $post->post_title = $request->post_title;
+        $post->post_subtitle = $request->post_subtitle;
+        $post->pages_id = $request->page_id;
+        $post->image_id = $request->bg_url;
+        $post->content = $request->content;
+        $post->links = json_encode($links);
+        $post->save();
+        
+        return redirect('/admin/posts/' . $id);
     }
 
     /**
