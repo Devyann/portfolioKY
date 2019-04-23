@@ -1,8 +1,8 @@
 <template>
     <div class="container footer-block d-flex flex-column justify-content-center align-content-center section">
             <div class="text-center center-block d-flex justify-content-around align-content-center">
-                <a href="https://www.github.com"><i id="social-fb" class="fab fa-github-square social"></i></a>
-                <a href="https://www.linkedin.com"><i id="social-tw" class="fab fa-linkedin social"></i></a>
+                <a href="https://www.github.com"><i id="social-gh" class="fab fa-github-square social"></i></a>
+                <a href="https://www.linkedin.com"><i id="social-in" class="fab fa-linkedin social"></i></a>
                 <a href="mailto:yannkhe@gmail.com"><i id="social-em" class="fas fa-envelope social"></i></a>
             </div>
     </div>      
@@ -31,15 +31,20 @@
    /*
        Multicoloured Hover Variations
    */
-
-    #social-fb:hover {
+    #social-gh {        
+        color : #24292e;       
+    }
+    #social-gh:hover {
         color: #3B5998;
     }
-    #social-tw:hover {
+    #social-in {
+        color: #0077B5;
+    }
+    #social-in:hover {
         color: #4099FF;
     }
-    #social-gp:hover {
-        color: #d34836;
+    #social-em {
+        color: #CF3D2E;
     }
     #social-em:hover {
         color: #f39c12;

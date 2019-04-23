@@ -14,6 +14,10 @@ import Contact from "./components/contact.vue";
 // Chaque route doit être mappée à un composant
 const routes = [
     {
+        path: '/',
+        redirect: 'home'
+    },
+    {
         path: '/vueapp/public/home',
         name: 'home',
         component: Home,
@@ -33,7 +37,8 @@ const routes = [
         component: Contact,
         icon: 'fas fa-id-card',
         nom: 'Contact'
-    }
+    },
+
 ]
 
 

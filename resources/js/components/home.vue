@@ -22,6 +22,12 @@
         },
         mounted() {
 
-        }
+        },
+        created() {
+        this.lastClicked = this.$route.name;
+        this.$store.commit('setPageRouting', this.lastClicked);
+        this.$store.dispatch('getData');
+
+    }
     }
 </script>

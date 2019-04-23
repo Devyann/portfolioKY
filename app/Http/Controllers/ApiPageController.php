@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pages;
+use App\Mail\Contact;
+use Illuminate\Support\Facades\Mail;
 
 
 class ApiPageController extends Controller
@@ -25,6 +27,12 @@ class ApiPageController extends Controller
             case 'skills':
                 
                 return $this->skills();
+                
+                break;
+            
+            case 'contact':
+                
+                return $this->contact($request);
                 
                 break;
             
@@ -68,6 +76,22 @@ class ApiPageController extends Controller
         $page = array('bg_url' => $bgUrl, 'posts' => $posts);
         $datas = array('coucou');
         return response()->json($page);
+        
+    }
+    protected function contact(Request $request){
+        
+//        dd($request->all()); // tableau associatif
+//        return response()->json($request->all());
+        $jsonData = $request->validate([
+            'name' => 'bail|required|max:50',
+            'surname' => 'bail|required|max:50',
+            'email' => 'bail|required',
+            'company' => 'nullable',
+            'message' => 'bail|required|min:50|max:4000'
+        ]);
+        dd($jsonData);
+        Mail::to('yannkhe@gmail.com')
+            ->send(new Contact($request->all()));
         
     }
 }

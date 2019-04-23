@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 Route::middleware('cors')->get('/{route}', 'ApiPageController@index');
+Route::middleware('cors')->post('/contact', 'ApiPageController@contact');
 
 //Route::middleware('auth:api')->get('/user', function (Request $request) {
 //    return $request->user();

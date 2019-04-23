@@ -8,6 +8,7 @@
         line-height: 1;
     }
     a {
+        color : #373a47;
         text-decoration: none;
     }
 </style>
@@ -23,11 +24,15 @@ export default {
         return {
             
             lastClicked: '',
-            routes: this.$router.options.routes
+//            routes: this.$router.options.routes
         }
     },
     computed: {
-
+        routes: function() {
+            var router = this.$router.options.routes;
+            var routes = router.filter((route) => { return route.path != '/'; });
+            return routes;
+        }
     },
     methods: {
 

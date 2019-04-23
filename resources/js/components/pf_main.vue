@@ -1,16 +1,6 @@
 <template>
     <b-container no-gutters class="pf-main-post w-100 text-center h-100 d-flex flex-column col-md">
-<!--        <b-card :title="post.title"
-                :sub-title="post.subtitle"
-                v-for="(post, key, index) in posts"
-                :key="key">
-            <p class="card-text" v-html="post.content"></p>
-            <b-link v-for="(link, key, index) in post.links"
-                    :key="key"
-                    :href="link.href"
-                    class="card-link">{{ link.name }}</b-link>
-        </b-card>-->
-        <div v-for="(post, key, index) in posts" :key="key" class="w-100 d-flex flex-column align-items-center col-md block-article" :class="[ post.bg_image ?  'bg parallax section justify-content-center'  : '' ]" :data-bg-url="[ post.bg_image ?  'url(\'/' + post.bg_image + '\')'  : 'none' ]">
+        <div v-for="(post, key, index) in posts" :key="key" class="w-100 d-flex flex-column align-items-center col-md block-article" :class="[ post.bg_image ?  'bg parallax section justify-content-center odd-post'  : 'section even-post' ]" :data-bg-url="[ post.bg_image ?  'url(\'/' + post.bg_image + '\')'  : 'none' ]">
             <div class="pf-main-post-left w-50 d-flex flex-column justify-content-center">
                 <h3>{{ post.title }}</h3>
                 <h4>{{ post.subtitle }}</h4>
@@ -46,6 +36,10 @@
     }
     div.block-article:first-child{
         padding-top: 10%;
+    }
+    div.odd-post {
+        color: #fff;
+        padding-top: 11.5em;
     }
     div.footer-block{
         transform: translate(0, 4.5em);
