@@ -167,12 +167,13 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-
+//        dd($request->all());
         $request->validate([
             'post_title' => 'required|unique:posts,post_title,' . $id,
             'post_subtitle' => 'required|unique:posts,post_title,' . $id,
             'page_id' => 'required|integer',
             'content' => 'required',
+            'bg_url' => 'nullable',
             'linkA' => 'url|max:255|nullable',
             'linkB' => 'url|max:255|nullable',
             'nameLinkA' => 'required_with:linkA',
@@ -196,7 +197,7 @@ class PostController extends Controller
         $post->post_title = $request->post_title;
         $post->post_subtitle = $request->post_subtitle;
         $post->pages_id = $request->page_id;
-        $post->image_id = $request->bg_url;
+        $post->image_id = ($request->bg_url == 'none') ? null : $request->bg_url;
         $post->content = $request->content;
         $post->links = json_encode($links);
         $post->save();
