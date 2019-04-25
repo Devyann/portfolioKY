@@ -22,7 +22,7 @@
 </head>
 <body class="d-flex justify-content-center">
     <div id="app" class="h-100 w-100 d-flex justify-content-center">
-        <div class="diagonal-effect d-none d-md-block"></div>
+        <div class="diagonal-effect"></div>
         <burger></burger>
         <index></index>
     </div>

@@ -1,11 +1,11 @@
 <template>
     <b-container no-gutters class="pf-main-post w-100 text-center h-100 d-flex flex-column col-md">
         <div v-for="(post, key, index) in posts" :key="key" class="w-100 d-flex flex-column align-items-center col-md block-article" :class="[ post.bg_image ?  'bg parallax section justify-content-center odd-post'  : 'section even-post' ]" :data-bg-url="[ post.bg_image ?  'url(\'/' + post.bg_image + '\')'  : 'none' ]">
-            <div class="pf-main-post-left w-50 d-flex flex-column justify-content-center">
+            <div class="pf-main-post-left d-flex flex-column justify-content-center">
                 <h3>{{ post.title }}</h3>
                 <h4>{{ post.subtitle }}</h4>
             </div>
-            <div class="pf-main-post-right w-50 d-flex flex-column justify-content-center">
+            <div class="pf-main-post-right d-flex flex-column justify-content-center">
                 <p>{{ post.content }}</p>
             </div>
         </div>

@@ -10889,6 +10889,13 @@ div.bm-burger-button {
   z-index: 10;
 }
 
+@media (max-width: 768px) {
+  div.bm-burger-button {
+    left: 14px;
+    top: 14px;
+  }
+}
+
 .bm-menu {
   background-color: #141508 !important;
 }
@@ -10951,16 +10958,9 @@ div.pf-main.container .card {
 div.pf-header {
   position: relative;
   background-color: transparent;
-  /*height: 49%;*/
-  /*border-bottom: solid black;*/
   box-shadow: 0px 6px 6px #adb5bd;
-}
-
-@media (min-width: 768px) {
-  div.pf-header {
-    height: 100%;
-    min-height: 100%;
-  }
+  height: 100%;
+  min-height: 100%;
 }
 
 div.pf-header div.bg-mask {
@@ -10999,6 +10999,28 @@ div.pf-main-post {
   /*height: 49%;*/
   /*min-height: 400px;*/
   font-family: "Nunito", sans-serif;
+}
+
+div.pf-main-post div.pf-main-post-left,
+div.pf-main-post div.pf-main-post-right {
+  width: 50%;
+}
+
+@media (max-width: 768px) {
+  div.pf-main-post div.pf-main-post-left,
+  div.pf-main-post div.pf-main-post-right {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  div.pf-main-post div.odd-post {
+    margin-top: 50%;
+  }
+}
+
+div.pf-main-post div.bg::after {
+  background-position: center;
 }
 
 li.skill-bar {

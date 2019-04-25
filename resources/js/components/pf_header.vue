@@ -14,7 +14,6 @@
                     </b-row>               
             </div>
         </div>
-        <div v-if="header.rounded_image" id="photo_identite" v-bind:style="{ 'backgroundImage': 'url(\'/' + header.rounded_image + '\')' }" class="d-md-none"></div>
     </b-container>
 </template>
 <style scoped>
