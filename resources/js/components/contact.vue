@@ -47,7 +47,7 @@
             <b-row>
                 <b-col>
                     <b-form-group
-                        :label="soc"
+                        label="Société"
                         label-for="company"
                         id="company"
                         >
@@ -148,7 +148,6 @@
                     email: null,
                     message: null
                 },
-                soc: "Société <small class='text-muted'><em>*facultatif</em></small>"
 
 
             }
