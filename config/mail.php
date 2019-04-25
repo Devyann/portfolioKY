@@ -56,6 +56,7 @@ return [
     */
 
     'from' => [
+        'address' => env('MAIL_FROM_ADDRESS', 'contact@yannick-khemaja.com'),
         'name' => env('MAIL_FROM_NAME', 'Portfolio'),
     ],
 
