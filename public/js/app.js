@@ -2397,6 +2397,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -23214,7 +23215,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.pf-main-post[data-v-1b6d0a32]{\n    background: #f2f2f6;\n    min-height: 100vh;\n}\ndiv.pf-main-post-left[data-v-1b6d0a32], div.pf-main-post-right[data-v-1b6d0a32]{\n    z-index: 1;\n}\ndiv.block-article[data-v-1b6d0a32]{\n    min-height: inherit;\n}\ndiv.block-article.bg[data-v-1b6d0a32]{\n    min-height: 100vh;\n    max-height: 100vh;\n    background-size: cover;\n    background-position: center;\n    background-attachment: fixed;\n}\ndiv.bg[data-v-1b6d0a32]::after {\n    background: url('/images/office.jpeg');\n}\ndiv.block-article[data-v-1b6d0a32]:first-child{\n    padding-top: 10%;\n}\ndiv.odd-post[data-v-1b6d0a32] {\n    color: #fff;\n    padding-top: 11.5em;\n}\ndiv.footer-block[data-v-1b6d0a32]{\n    -webkit-transform: translate(0, 4.5em);\n            transform: translate(0, 4.5em);\n}\n\n", ""]);
+exports.push([module.i, "\n.pf-main-post[data-v-1b6d0a32]{\n    background: #f2f2f6;\n    min-height: 100vh;\n}\ndiv.pf-main-post-left[data-v-1b6d0a32], div.pf-main-post-right[data-v-1b6d0a32]{\n    z-index: 1;\n}\ndiv.block-article[data-v-1b6d0a32]{\n    min-height: inherit;\n}\ndiv.block-article.bg[data-v-1b6d0a32]{\n    min-height: 100vh;\n    max-height: 100vh;\n    background-size: cover;\n    background-position: center;\n    background-attachment: fixed;\n}\ndiv.bg[data-v-1b6d0a32]::after {\n    background: url('/images/office.jpeg');\n}\ndiv.block-article[data-v-1b6d0a32]:first-child{\n    padding-top: 10%;\n}\ndiv.odd-post[data-v-1b6d0a32] {\n    color: #fff;\n    padding-top: 11.5em;\n    font-weight: 700;\n}\ndiv.footer-block[data-v-1b6d0a32]{\n    -webkit-transform: translate(0, 4.5em);\n            transform: translate(0, 4.5em);\n}\n\n", ""]);
 
 // exports
 
@@ -62368,19 +62369,33 @@ var staticRenderFns = [
               "text-center center-block d-flex justify-content-around align-content-center"
           },
           [
-            _c("a", { attrs: { href: "https://www.github.com" } }, [
-              _c("i", {
-                staticClass: "fab fa-github-square social",
-                attrs: { id: "social-gh" }
-              })
-            ]),
+            _c(
+              "a",
+              {
+                attrs: { href: "https://github.com/Devyann?tab=repositories" }
+              },
+              [
+                _c("i", {
+                  staticClass: "fab fa-github-square social",
+                  attrs: { id: "social-gh" }
+                })
+              ]
+            ),
             _vm._v(" "),
-            _c("a", { attrs: { href: "https://www.linkedin.com" } }, [
-              _c("i", {
-                staticClass: "fab fa-linkedin social",
-                attrs: { id: "social-in" }
-              })
-            ]),
+            _c(
+              "a",
+              {
+                attrs: {
+                  href: "https://www.linkedin.com/in/yannick-khemaja-2b50b5179/"
+                }
+              },
+              [
+                _c("i", {
+                  staticClass: "fab fa-linkedin social",
+                  attrs: { id: "social-in" }
+                })
+              ]
+            ),
             _vm._v(" "),
             _c("a", { attrs: { href: "mailto:yannkhe@gmail.com" } }, [
               _c("i", {

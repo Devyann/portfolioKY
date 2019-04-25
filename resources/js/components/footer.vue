@@ -1,8 +1,8 @@
 <template>
     <div class="container footer-block d-flex flex-column justify-content-center align-content-center section">
             <div class="text-center center-block d-flex justify-content-around align-content-center">
-                <a href="https://www.github.com"><i id="social-gh" class="fab fa-github-square social"></i></a>
-                <a href="https://www.linkedin.com"><i id="social-in" class="fab fa-linkedin social"></i></a>
+                <a href="https://github.com/Devyann?tab=repositories"><i id="social-gh" class="fab fa-github-square social"></i></a>
+                <a href="https://www.linkedin.com/in/yannick-khemaja-2b50b5179/"><i id="social-in" class="fab fa-linkedin social"></i></a>
                 <a href="mailto:yannkhe@gmail.com"><i id="social-em" class="fas fa-envelope social"></i></a>
             </div>
     </div>      

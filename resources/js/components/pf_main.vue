@@ -40,6 +40,7 @@
     div.odd-post {
         color: #fff;
         padding-top: 11.5em;
+        font-weight: 700;
     }
     div.footer-block{
         transform: translate(0, 4.5em);
