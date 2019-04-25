@@ -7,7 +7,7 @@
                 </b-col>
             </b-row>
             <b-row class="h-50 mx-5">
-                <b-col col lg="8" class="d-flex align-items-start justify-content-start">
+                <b-col col lg="8" class="align-items-start justify-content-start d-none d-md-flex">
                     <p class="text"></p>
                 </b-col>
                 <b-col col lg="4">
