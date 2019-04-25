@@ -89,7 +89,7 @@ class ApiPageController extends Controller
             'company' => 'nullable',
             'message' => 'bail|required|min:50|max:4000'
         ]);
-        dd($jsonData);
+
         Mail::to('yannkhe@gmail.com')
             ->send(new Contact($request->all()));
         
