@@ -1,20 +1,21 @@
 <template>
     <b-container class="d-flex flex-column align-items-center justify-content-center no-gutters h-100 col-md">
-        <div class="bg-skills h-100 w-100 d-flex flex-column justify-content-around align-items-end">
-            <b-row class="mx-5">
+        <div class="bg-skills h-100 w-100 d-flex flex-column justify-content-around align-items-end">  
+            <b-container fluid>
+            <b-row class="mx-md-5 justify-content-end">
                 <b-col sm="auto">
                     <h1 class="pf-site-title text-white p-2"><v-scrollin :speed="60" :misses="2">Compétences</v-scrollin></h1>                
                 </b-col>
             </b-row>
-            <b-row class="h-50 mx-5">
+            </b-container>
+            <b-container fluid>    
+            <b-row class="h-50 mx-md-5">
                 <b-col col lg="8" class="align-items-start justify-content-start d-none d-md-flex">
                     <p class="text"></p>
                 </b-col>
                 <b-col col lg="4">
                     <transition name="company" appear>
                             <b-card
-                            overlay
-                            img-src="/images/home_office.jpeg"
                             title="Développement"
                             class="h-100"
                             text-variant="white"
@@ -37,8 +38,6 @@
                     </transition>
                     <transition name='company' appear>
                             <b-card
-                            overlay
-                            img-src="/images/home_office.jpeg"
                             title="Logiciels"
                             class="h-100"
                             text-variant="white"
@@ -61,6 +60,7 @@
                     </transition>
                 </b-col>
             </b-row>
+            </b-container>
         </div>
     </b-container>
 </template>
@@ -82,6 +82,10 @@
     }
     .card{
         border: 1px solid rgba(0, 0, 0, 0.72);
+        background: rgba( 0, 0, 0, 0.6) !important;
+    }
+    .card-title {
+        padding-left: 0.8em;
     }
     .bg-mask{
         background: #ffc10717;
@@ -131,6 +135,7 @@
     .dud {
         color: #757575;
     }
+    
     
 </style>
  
