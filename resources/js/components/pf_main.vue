@@ -43,7 +43,7 @@
         font-weight: 700;
     }
     div.footer-block{
-        transform: translate(0, 4.5em);
+        transform: translate(0, 5.5em);
     }
     
 </style>

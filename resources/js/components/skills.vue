@@ -104,18 +104,18 @@
 
     /* moving */
     .company-move {
-        transition: all 600ms ease-in-out 50ms;
+        transition: opacity 600ms ease-in-out 50ms;
     }
 
     /* appearing */
     .company-enter-active {
-        transition: all 1s ease-out;
+        transition: opacity 100ms ease-out;
     }
 
     /* disappearing */
     .company-leave-active {
-        transition: all 1s ease-in;
-        /*position: absolute;*/
+        transition: opacity 100ms ease-in;
+        position: absolute;
         z-index: 0;
     }
 

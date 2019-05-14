@@ -113,6 +113,17 @@ div.bm-burger-button{
   background-size: 100%;
   /* Keep the image from overlapping sibling elements. */ 
   z-index: 0;
+  
+}
+@-moz-document url-prefix() {
+    .parallax::after {
+          /*background-position: center !important;*/
+          -moz-transform: none !important;
+    } 
+    .footer-block {
+        padding-bottom: 2.5em;
+        transform: translate(0, 3.5em) !important;
+    }
 }
 
 div.pf-main.container {
@@ -161,6 +172,7 @@ div.pf-header {
 div.pf-main-post {
     /*height: 49%;*/
     /*min-height: 400px;*/
+    height: 100%;
     font-family: $font-family-sans-serif;
     div.pf-main-post-left, div.pf-main-post-right {
         width: 50%;
